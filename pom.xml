@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>dad.template</groupId>
+	<artifactId>GeoFX</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<exec.mainClass>dad.javafx.geofx.Main</exec.mainClass>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>11.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>11.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mashape.unirest</groupId>
+			<artifactId>unirest-java</artifactId>
+			<version>1.4.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.10</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jsonschema2pojo</groupId>
+				<artifactId>jsonschema2pojo-maven-plugin</artifactId>
+				<version>1.0.2</version>
+				<configuration>
+					<sourceType>json</sourceType>
+					<outputDirectory>${basedir}/src/main/java</outputDirectory>
+					<annotationStyle>jackson2</annotationStyle>
+					<useTitleAsClassname>true</useTitleAsClassname>
+				</configuration>
+				<executions>
+					<execution>
+						<id>generate-ipapi-schema</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/schemas/ipapi</sourceDirectory>
+							<targetPackage>dad.javafx.geofx.client.ipapi</targetPackage>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-ipify-schema</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/schemas/ipify</sourceDirectory>
+							<targetPackage>dad.javafx.geofx.client.ipify</targetPackage>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
