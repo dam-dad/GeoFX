@@ -24,56 +24,56 @@
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Label style="-fx-font-weight: bold;" text="LATITUDE" />
+            <Label style="-fx-font-weight: bold;" text="%location.latitude" />
             <Label fx:id="latitudeLabel" text="-" />
          </children>
       </VBox>
       <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
          <children>
-            <Label style="-fx-font-weight: bold;" text="IP LOCATION:" />
+            <Label style="-fx-font-weight: bold;" text="%location.ipLocation" />
             <Label fx:id="ipLocationLabel" text="-" />
             <ImageView fx:id="flagImage" fitHeight="21.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
          <children>
-            <Label style="-fx-font-weight: bold;" text="LONGITUDE" />
+            <Label style="-fx-font-weight: bold;" text="%location.longitude" />
             <Label fx:id="longitudeLabel" text="-" />
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
          <children>
-            <Label style="-fx-font-weight: bold;" text="CITY, STATE" />
+            <Label style="-fx-font-weight: bold;" text="%location.city" />
             <Label fx:id="cityLabel" text="-" />
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <Label style="-fx-font-weight: bold;" text="ZIP CODE" />
+            <Label style="-fx-font-weight: bold;" text="%location.zipCode" />
             <Label fx:id="zipCodeLabel" text="-" />
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
          <children>
-            <Label style="-fx-font-weight: bold;" text="LANGUAGE" />
+            <Label style="-fx-font-weight: bold;" text="%location.language" />
             <Label fx:id="languageLabel" text="-" />
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <children>
-            <Label style="-fx-font-weight: bold;" text="TIME ZONE" />
+            <Label style="-fx-font-weight: bold;" text="%location.timeZone" />
             <Label fx:id="timeZoneLabel" text="-" />
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
          <children>
-            <Label style="-fx-font-weight: bold;" text="CALLING CODE" />
+            <Label style="-fx-font-weight: bold;" text="%location.timeZone" />
             <Label fx:id="callingCodeLabel" text="-" />
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <children>
-            <Label style="-fx-font-weight: bold;" text="CURRENCY" />
+            <Label style="-fx-font-weight: bold;" text="%location.currency" />
             <Label fx:id="currencyLabel" text="-" />
          </children>
       </VBox>

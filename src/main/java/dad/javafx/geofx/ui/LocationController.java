@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dad.javafx.geofx.client.ipapi.Geo;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,6 +21,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class LocationController implements Initializable {
+
+	// properties
+
+	private ObjectProperty<Geo> geo = new SimpleObjectProperty<>();
 
 	// model
 
@@ -64,7 +70,7 @@ public class LocationController implements Initializable {
 	private Label currencyLabel;
 
 	public LocationController() throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LocationView.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LocationView.fxml"), ResourceBundle.getBundle("i18n/messages"));
 		loader.setController(this);
 		loader.load();
 	}
@@ -76,7 +82,7 @@ public class LocationController implements Initializable {
 		longitudeLabel.textProperty().bind(longitude.asString());
 		ipLocationLabel.textProperty().bind(ipLocation.concat(" (").concat(countryCode).concat(")"));
 		flagImage.imageProperty().bind(flag);
-		
+
 		countryCode.addListener((o, ov, nv) -> {
 			if (ov != null) {
 				flag.set(null);
@@ -85,59 +91,38 @@ public class LocationController implements Initializable {
 				flag.set(new Image("/images/flags/" + nv.toUpperCase() + ".png"));
 			}
 		});
+		
+		geo.addListener((o, ov, nv) -> onGeoChanged(o, ov, nv));
 
+	}
+
+	private void onGeoChanged(ObservableValue<? extends Geo> o, Geo ov, Geo nv) {
+		
+		if (nv != null) {
+			
+			latitude.set(nv.getLatitude());
+			longitude.set(nv.getLongitude());
+			ipLocation.set(nv.getCountryName());
+			countryCode.set(nv.getCountryCode());
+			
+		}
+		
 	}
 
 	public GridPane getView() {
 		return view;
 	}
 
-	public final DoubleProperty latitudeProperty() {
-		return this.latitude;
+	public final ObjectProperty<Geo> geoProperty() {
+		return this.geo;
 	}
 
-	public final double getLatitude() {
-		return this.latitudeProperty().get();
+	public final Geo getGeo() {
+		return this.geoProperty().get();
 	}
 
-	public final void setLatitude(final double latitude) {
-		this.latitudeProperty().set(latitude);
-	}
-
-	public final DoubleProperty longitudeProperty() {
-		return this.longitude;
-	}
-
-	public final double getLongitude() {
-		return this.longitudeProperty().get();
-	}
-
-	public final void setLongitude(final double longitude) {
-		this.longitudeProperty().set(longitude);
-	}
-
-	public final StringProperty ipLocationProperty() {
-		return this.ipLocation;
-	}
-
-	public final String getIpLocation() {
-		return this.ipLocationProperty().get();
-	}
-
-	public final void setIpLocation(final String ipLocation) {
-		this.ipLocationProperty().set(ipLocation);
-	}
-
-	public final StringProperty countryCodeProperty() {
-		return this.countryCode;
-	}
-
-	public final String getCountryCode() {
-		return this.countryCodeProperty().get();
-	}
-
-	public final void setCountryCode(final String countryCode) {
-		this.countryCodeProperty().set(countryCode);
+	public final void setGeo(final Geo geo) {
+		this.geoProperty().set(geo);
 	}
 
 }

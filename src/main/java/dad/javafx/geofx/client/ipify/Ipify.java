@@ -5,13 +5,13 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 import dad.javafx.geofx.jackson.JacksonObjectMapper;
 
-public class IpifyService {
+public class Ipify {
 	
-	public IpifyService() {
+	public Ipify() {
 		Unirest.setObjectMapper(new JacksonObjectMapper());
 	}
 	
-	public String getIp() throws IpifyServiceException {
+	public String getIp() throws IpifyException {
 		
 		try {
 			
@@ -26,14 +26,14 @@ public class IpifyService {
 
 		} catch (UnirestException e) {
 			
-			throw new IpifyServiceException(e);
+			throw new IpifyException(e);
 			
 		}
 		
 	}
 	
-	public static void main(String[] args) throws IpifyServiceException {
-		IpifyService service = new IpifyService();
+	public static void main(String[] args) throws IpifyException {
+		Ipify service = new Ipify();
 		System.out.println(service.getIp());
 	}
 

@@ -1,18 +1,21 @@
-package dad.javafx.geofx;
+package dad.javafx.geofx.ui;
 
-import dad.javafx.geofx.ui.RootController;
+import java.util.Locale;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class GeoFXApp extends Application {
 	
-	private RootController controller;
+	private MainController controller;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		controller = new RootController();
+		Locale.setDefault(Locale.ENGLISH);
+		
+		controller = new MainController();
 		
 		Scene escena = new Scene(controller.getView());
 		

@@ -56,6 +56,7 @@
 						<goals>
 							<goal>generate</goal>
 						</goals>
+						<phase>generate-sources</phase>
 						<configuration>
 							<sourceDirectory>${basedir}/src/main/resources/schemas/ipapi</sourceDirectory>
 							<targetPackage>dad.javafx.geofx.client.ipapi</targetPackage>
@@ -66,6 +67,7 @@
 						<goals>
 							<goal>generate</goal>
 						</goals>
+						<phase>generate-sources</phase>
 						<configuration>
 							<sourceDirectory>${basedir}/src/main/resources/schemas/ipify</sourceDirectory>
 							<targetPackage>dad.javafx.geofx.client.ipify</targetPackage>

@@ -20,7 +20,7 @@
 					</image>
 				</ImageView>
 				<TextField fx:id="ipText" />
-				<Button fx:id="checkButton" defaultButton="true" mnemonicParsing="false" onAction="#onCheckAction" text="Check IP" />
+				<Button fx:id="checkButton" defaultButton="true" mnemonicParsing="false" onAction="#onCheckAction" text="%main.checkButton" />
 			</children>
 			<padding>
 				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -30,9 +30,9 @@
 	<center>
 		<TabPane side="BOTTOM" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
 			<tabs>
-				<Tab fx:id="locationTab" text="Location" />
-				<Tab fx:id="connectionTab" text="Connection" />
-				<Tab fx:id="secutiryTab" text="Security" />
+				<Tab fx:id="locationTab" text="%location.title" />
+				<Tab fx:id="connectionTab" text="%connection.title" />
+				<Tab fx:id="secutiryTab" text="%security.title" />
 			</tabs>
 		</TabPane>
 	</center>
