@@ -32,6 +32,12 @@ public class LocationController implements Initializable {
 	private DoubleProperty longitude = new SimpleDoubleProperty();
 	private StringProperty ipLocation = new SimpleStringProperty();
 	private StringProperty countryCode = new SimpleStringProperty();
+	private StringProperty city = new SimpleStringProperty();
+	private StringProperty zipCode = new SimpleStringProperty();
+	private StringProperty language = new SimpleStringProperty();
+	private StringProperty timeZone = new SimpleStringProperty();
+	private StringProperty callingCode = new SimpleStringProperty();
+	private StringProperty currency = new SimpleStringProperty();
 	private ObjectProperty<Image> flag = new SimpleObjectProperty<>();
 
 	// view
@@ -81,6 +87,13 @@ public class LocationController implements Initializable {
 		latitudeLabel.textProperty().bind(latitude.asString());
 		longitudeLabel.textProperty().bind(longitude.asString());
 		ipLocationLabel.textProperty().bind(ipLocation.concat(" (").concat(countryCode).concat(")"));
+		cityLabel.textProperty().bind(city);
+		zipCodeLabel.textProperty().bind(zipCode);
+		languageLabel.textProperty().bind(language);
+		timeZoneLabel.textProperty().bind(timeZone);
+		callingCodeLabel.textProperty().bind(callingCode);
+		currencyLabel.textProperty().bind(currency);
+
 		flagImage.imageProperty().bind(flag);
 
 		countryCode.addListener((o, ov, nv) -> {
@@ -104,6 +117,12 @@ public class LocationController implements Initializable {
 			longitude.set(nv.getLongitude());
 			ipLocation.set(nv.getCountryName());
 			countryCode.set(nv.getCountryCode());
+			city.set(nv.getCity());
+			zipCode.set(nv.getZip());
+			language.set(nv.getLocation().getLanguages().get(0).getName());
+			timeZone.set(nv.getTimeZone().getId());
+			callingCode.set(nv.getLocation().getCallingCode());
+			currency.set(nv.getCurrency().getName());
 			
 		}
 		

@@ -13,7 +13,7 @@ public class GeoFXApp extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		Locale.setDefault(Locale.ENGLISH);
+//		Locale.setDefault(Locale.ENGLISH);
 		
 		controller = new MainController();
 		

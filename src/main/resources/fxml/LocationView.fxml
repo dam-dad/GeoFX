@@ -67,7 +67,7 @@
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
          <children>
-            <Label style="-fx-font-weight: bold;" text="%location.timeZone" />
+            <Label style="-fx-font-weight: bold;" text="%location.callingCode" />
             <Label fx:id="callingCodeLabel" text="-" />
          </children>
       </VBox>
